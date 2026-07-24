@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Pause, Play, Plus, Minus, SkipForward, ChevronRight, ChevronLeft, Repeat, AlertTriangle, Square } from 'lucide-react'
+import { Pause, Play, Plus, Minus, SkipForward, ChevronRight, ChevronLeft, Repeat, AlertTriangle, Square, PlayCircle } from 'lucide-react'
 import type { WorkoutStep } from '../../lib/buildSteps'
 import { useTimer } from '../../hooks/useTimer'
 import { useWorkoutCues } from '../../hooks/useWorkoutCues'
@@ -110,6 +110,17 @@ export function ExerciseStepView({
         <div className="min-w-0">
           <h1 className="text-xl font-bold leading-tight">{exercise.nameHe}</h1>
           <p className="text-text-muted text-xs">{exercise.categories.map((c) => CATEGORY_LABELS_HE[c]).join(' · ')}</p>
+          {exercise.video && (
+            <a
+              href={exercise.video}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-brand text-xs font-medium mt-0.5"
+            >
+              <PlayCircle size={14} aria-hidden />
+              צפה בהדגמה
+            </a>
+          )}
         </div>
       </div>
 
